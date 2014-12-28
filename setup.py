@@ -26,6 +26,7 @@ setup(
     ],
 
     long_description=open('README.rst', 'r').read(),
-    py_modules=[ 'ipaddress' ],
+    py_modules=['ipaddress'],
+    install_reqeuires=['six'],
     zip_safe=True,
 )
