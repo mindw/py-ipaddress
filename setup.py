@@ -7,9 +7,19 @@ if sys.version_info >= (3, 0):
 
 from setuptools import setup
 
+import ipaddress
+
+_locals = {}
+with open('ipaddress.py') as fp:
+    for line in fp:
+        if line.startswith('__version__'):
+            exec(line, None, _locals)
+            break
+__version__ = _locals['__version__']
+
 setup(
     name='py2-ipaddress',
-    version='2.0',
+    version=__version__,
     description="Python 2.7 backport of 3.3's ipaddress module",
     maintainer='Søren Løvborg',
     maintainer_email='kwi@kwi.dk',
@@ -27,6 +37,6 @@ setup(
 
     long_description=open('README.rst', 'r').read(),
     py_modules=['ipaddress'],
-    install_reqeuires=['six'],
+    install_reqeuires=['six', 'backports.functools_lru_cache'],
     zip_safe=True,
 )

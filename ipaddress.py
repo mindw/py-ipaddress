@@ -8,10 +8,11 @@ and networks.
 
 """
 
-__version__ = '1.0'
+__version__ = '2.1.dev0'
 
 import math
 import six
+from backports.functools_lru_cache import lru_cache
 
 IPV4LENGTH = 32
 IPV6LENGTH = 128
@@ -1294,7 +1295,7 @@ class IPv4Address(_BaseV4, _BaseAddress):
         return self in reserved_network
 
     @property
-    #@functools.lru_cache()
+    @lru_cache()
     def is_private(self):
         """Test if this address is allocated for private networks.
 
@@ -1535,7 +1536,7 @@ class IPv4Network(_BaseV4, _BaseNetwork):
             self.hosts = self.__iter__
 
     @property
-    #@functools.lru_cache()
+    @lru_cache()
     def is_global(self):
         """Test if this address is allocated for public networks.
 
@@ -1906,7 +1907,7 @@ class IPv6Address(_BaseV6, _BaseAddress):
         return self in sitelocal_network
 
     @property
-    #@functools.lru_cache()
+    @lru_cache()
     def is_private(self):
         """Test if this address is allocated for private networks.
 
