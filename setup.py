@@ -7,8 +7,6 @@ if sys.version_info >= (3, 0):
 
 from setuptools import setup
 
-import ipaddress
-
 _locals = {}
 with open('ipaddress.py') as fp:
     for line in fp:
