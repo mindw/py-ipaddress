@@ -37,6 +37,6 @@ setup(
 
     long_description=open('README.rst', 'r').read(),
     py_modules=['ipaddress'],
-    install_reqeuires=['six', 'backports.functools_lru_cache'],
+    install_requires=['six', 'backports.functools_lru_cache'],
     zip_safe=True,
 )
